@@ -44,7 +44,12 @@ app.get("/api/echo", (req, res) => {
 });
 
 app.post("/api/echo", (req, res) => {
-  res.json({ ok: true, received: req.body ?? null, host: "NodePanel" });
+  res.json({
+    ok: true,
+    received: req.body ?? null,
+    host: "NodePanel",
+    method: req.method,
+  });
 });
 
 app.get("/", (_req, res) => {
