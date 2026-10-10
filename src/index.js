@@ -44,11 +44,15 @@ app.get("/api/echo", (req, res) => {
 });
 
 app.post("/api/echo", (req, res) => {
-  res.json({ ok: true, received: req.body ?? null });
+  res.json({ ok: true, received: req.body ?? null, host: "NodePanel" });
 });
 
 app.get("/", (_req, res) => {
-  res.json({ ok: true, service: "server", endpoints: ["/api/health", "/api/echo"] });
+  res.json({
+    ok: true,
+    service: "server",
+    endpoints: ["/api/health", "/api/echo"],
+  });
 });
 
 app.use((_req, res) => res.status(404).json({ ok: false, error: "Not found" }));
