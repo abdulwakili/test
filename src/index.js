@@ -96,6 +96,7 @@ app.post("/api/echo", (req, res) => {
     received: req.body ?? null,
     host: "NodePanel",
     method: req.method,
+    query: req.query,
     time: new Date().toISOString(),
   });
 });
